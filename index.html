@@ -1,1 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transferencia Microbiana Vaginal en el Parto | Ingeniería Biomédica - UAT</title>
+  
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX for pristine mathematical typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
 
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       INSTITUTIONAL MASTHEAD & NAVIGATION
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="top-masthead">
+      <div class="top-masthead-inner">
+        <div class="uat-identity">
+          <img src="LOGOS/2sjr8m-escudo_imagotipoUAT.png" alt="Universidad Autónoma de Tamaulipas" class="uat-logo-img">
+          <img src="LOGOS/images.jpeg" alt="Facultad de Medicina de Tampico" class="faculty-seal-img">
+          <div class="uat-text-meta">
+            <span class="univ-name">Universidad Autónoma de Tamaulipas</span>
+            <span class="faculty-name">Facultad de Medicina de Tampico "Dr. Alberto Romo Caballero"</span>
+          </div>
+        </div>
+        <div class="academic-quick-badge">
+          Cálculo Integral y Diferencial I &bull; <span>Ingeniería Biomédica</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-container">
+      <a href="#inicio" class="site-title-compact">Transferencia Microbiana Vaginal</a>
+      <nav>
+        <ul class="site-nav-links">
+          <li><a href="#fundamento">Fundamento Biológico</a></li>
+          <li><a href="#calculo">Modelado Matemático</a></li>
+          <li><a href="#simulador">Laboratorio Interactivo</a></li>
+          <li><a href="#biomedica">Ingeniería Biomédica</a></li>
+          <li><a href="#evidencia">Fuentes Científicas</a></li>
+        </ul>
+      </nav>
+      <button type="button" class="header-action-btn" id="printBtn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 6 2 18 2 18 9"></polyline>
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+          <rect x="6" y="14" width="12" height="8"></rect>
+        </svg>
+        Imprimir / PDF
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       HERO & ACADEMIC DOSSIER
+       ======================================================================== -->
+  <section class="hero-section" id="inicio">
+    <div class="hero-inner">
+      
+      <!-- Academic Student Dossier -->
+      <div class="academic-dossier">
+        <div class="dossier-item">
+          <span class="dossier-label">Equipo de Trabajo</span>
+          <span class="dossier-value" style="font-size: 0.875rem; line-height: 1.45;">
+            Rodrigo Lara<br>
+            Mariana Salas Villanueva<br>
+            Stefany Alessandra Castro Balboa
+          </span>
+        </div>
+        <div class="dossier-item">
+          <span class="dossier-label">Grupo y Carrera</span>
+          <span class="dossier-value">1 A &bull; Ing. Biomédica</span>
+        </div>
+        <div class="dossier-item">
+          <span class="dossier-label">Unidad de Aprendizaje</span>
+          <span class="dossier-value accent">Cálculo Integral y Diferencial I</span>
+        </div>
+        <div class="dossier-item">
+          <span class="dossier-label">Catedrático Titular</span>
+          <span class="dossier-value">Fuentes Castro Juan Ángel</span>
+        </div>
+        <div class="dossier-item">
+          <span class="dossier-label">Contacto del Equipo</span>
+          <span class="dossier-value" style="font-size: 0.85rem; font-family: var(--font-mono);">rodrigolaradelatorre@gmail.com</span>
+        </div>
+      </div>
+
+      <h1 class="hero-headline">Transferencia microbiana vaginal en el parto: dinámica biológica, modelado diferencial y diseño biomédico</h1>
+      
+      <p class="hero-abstract">
+        Un análisis cuantitativo y traslacional del primer inóculo microbiano humano. Este proyecto integra los mecanismos fisiológicos de colonización vertical entre madre y neonato, su formulación analítica mediante cálculo diferencial e integral de poblaciones, y las aplicaciones de la ingeniería biomédica en biomateriales de transferencia controlada y biosensores point-of-care.
+      </p>
+
+      <div class="hero-meta-strip">
+        <span class="meta-pill">Modelado: Ecuación Logística de Verhulst</span>
+        <span class="meta-pill">Integración: Inóculo Acumulado $\int N(t)dt$</span>
+        <span class="meta-pill">Evidencia: eLife 2021 &bull; MDPI 2023</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MAIN CONTENT BODY
+       ======================================================================== -->
+  <main class="main-wrapper">
+
+    <!-- 1. FUNDAMENTO BIOLÓGICO -->
+    <section class="content-section" id="fundamento">
+      <div class="section-heading-group">
+        <h2 class="section-heading">Fisiología y transmisión vertical del microbioma en el nacimiento</h2>
+        <p class="section-summary">
+          El tránsito por el canal vaginal constituye el evento biológico fundador del microbioma del recién nacido, con implicaciones determinantes en la educación de su sistema inmunitario y maduración epitelial.
+        </p>
+      </div>
+
+      <div class="layout-split">
+        <div class="prose">
+          <p class="lead-paragraph">
+            Durante la gestación, los estrógenos inducen un engrosamiento del epitelio vaginal y acumulación de glucógeno, favoreciendo una microbiota de baja diversidad dominada casi exclusivamente por especies protectoras del género <em>Lactobacillus</em> (principalmente <em>Lactobacillus crispatus</em>, <em>L. jensenii</em> y <em>L. gasseri</em>).
+          </p>
+          <p>
+            Estas bacterias metabolizan el glucógeno hacia ácido láctico, generando un microambiente ácido protector con pH típicamente entre 3.8 y 4.5. Al nacer por vía vaginal, el neonato entra en contacto directo y traga este fluido biológico, impregnando su piel, cavidad bucal, tracto respiratorio superior y tracto gastrointestinal con miles de millones de unidades formadoras de colonias (UFC).
+          </p>
+          <p>
+            Esta siembra natural promueve la síntesis temprana de IgA secretora, estimula las uniones estrechas (tight junctions) del endotelio entérico y previene la proliferación de patógenos oportunistas mediante competencia por sustratos y secreción de bacteriocinas.
+          </p>
+        </div>
+
+        <figure class="scientific-figure">
+          <div class="figure-media-wrap">
+            <img src="IMAGENES/portada-microbiota-ayp1-1150-550-p-L-97.jpg" alt="Evolución de la microbiota vaginal y ciclo biológico">
+          </div>
+          <figcaption class="figure-caption">
+            <strong>Figura 1.</strong> Dinámica del ecosistema microbiano en el aparato reproductor femenino a lo largo de las etapas vitales y la gestación, mostrando la densidad de lactobacilos protectores.
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Comparative Analysis: Parto Vaginal vs Cesárea -->
+      <div class="comparison-container">
+        <div class="comparison-column vaginal">
+          <h3 class="comparison-title">Parto Vaginal (Eutócico)</h3>
+          <ul class="comparison-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#135d50" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>Inóculo fundador fisiológico:</strong> Exposición a <em>Lactobacillus</em>, <em>Bifidobacterium</em> y <em>Prevotella</em> maternos.</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#135d50" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>Carga inicial masiva:</strong> Elevada densidad microbiana inicial ($N_0 \approx 10^5 \text{ CFU/mL}$) permitiendo alcanzar fase de meseta en menos de 24 horas.</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#135d50" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span><strong>Maduración inmunológica:</strong> Estímulo oportuno de células T reguladoras ($T_{\text{reg}}$) y tolerancia inmunológica. Menor riesgo de asma y atopia.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="comparison-column cesarean">
+          <h3 class="comparison-title">Cesárea (Quirúrgica)</h3>
+          <ul class="comparison-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span><strong>Disrupción del inóculo natural:</strong> El feto se extrae directamente del útero estéril sin contacto con la flora vaginal.</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span><strong>Colonización nosocomial:</strong> La piel y mucosa del neonato son colonizadas por flora ambiental y hospitalaria (<em>Staphylococcus</em>, <em>Streptococcus</em>, <em>Corynebacterium</em>).</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              <span><strong>Retraso colonizador crítico:</strong> Carga inicial reducida ($N_0 \approx 10^2 \text{ CFU/mL}$) y retardo en la expresión de enzimas metabólicas clave.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Additional Microscopic, Taxonomic, and Systemic Evidence -->
+      <div class="figure-grid-3">
+        <figure class="scientific-figure">
+          <div class="figure-media-wrap" style="height: 240px; background: #2f2a28;">
+            <img src="IMAGENES/_108755140_gettyimages-655476328.jpg.webp" alt="Taxonomía microbiana vaginal normal vs disbiosis" style="height: 100%; object-fit: contain;">
+          </div>
+          <figcaption class="figure-caption">
+            <strong>Figura 2.</strong> Taxonomía comparativa: cepas comensales benéficas (<em>Lactobacillus</em>, <em>Bifidobacterium</em>) frente a patógenos oportunistas potenciales en el canal reproductivo.
+          </figcaption>
+        </figure>
+
+        <figure class="scientific-figure">
+          <div class="figure-media-wrap" style="height: 240px;">
+            <img src="IMAGENES/P5 Fig 2 - FR_0.jpg.webp" alt="Microfotografía de contraste de fase de lactobacilos" style="height: 100%; object-fit: cover;">
+          </div>
+          <figcaption class="figure-caption">
+            <strong>Figura 3.</strong> Microfotografía de contraste de fase (400x). (A) Morfología fisiológica de bacilos de <em>Lactobacillus</em> en eubiosis; (B) Pérdida de lactobacilos en vaginosis con flora anaerobia facultativa.
+          </figcaption>
+        </figure>
+
+        <figure class="scientific-figure">
+          <div class="figure-media-wrap" style="height: 240px; background: #000;">
+            <img src="IMAGENES/585557f18a8aab33f4d16c0ddaf8673d.jpg" alt="Eje intestino-cerebro y sistema inmune" style="height: 100%; object-fit: contain;">
+          </div>
+          <figcaption class="figure-caption">
+            <strong>Figura 4.</strong> El eje microbiota-intestino-cerebro. La adecuada siembra neonatal inicial modula la síntesis de metabolitos antiinflamatorios y vías de señalización neuroinmunológica temprana.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 2. VINCULACIÓN CON CÁLCULO INTEGRAL Y DIFERENCIAL I -->
+    <section class="content-section" id="calculo">
+      <div class="section-heading-group">
+        <h2 class="section-heading">Modelado matemático: cálculo diferencial e integral de la colonización</h2>
+        <p class="section-summary">
+          Cómo las herramientas del cálculo infinitesimal permiten cuantificar la tasa instantánea de proliferación y la exposición bacteriana acumulada recibida por el neonato.
+        </p>
+      </div>
+
+      <div class="prose" style="margin-bottom: 2rem;">
+        <p>
+          En ingeniería biomédica, los procesos biológicos no se describen cualitativamente, sino a través de modelos dinámicos deterministas. El establecimiento de la biomasa microbiana $N(t)$ en el epitelio neonatal está gobernado por una tasa intrínseca de crecimiento $r$ y una limitación física de espacio y nutrientes representada por la capacidad de carga $K$.
+        </p>
+      </div>
+
+      <!-- Math Cards Grid -->
+      <div class="math-banner-grid">
+        <!-- Card 1: Cálculo Diferencial -->
+        <div class="math-card">
+          <div class="math-card-header">
+            <h3 class="math-card-title">Cálculo Diferencial: Tasa Instantánea de Crecimiento</h3>
+            <span class="math-card-context">Ecuación diferencial de Verhulst</span>
+          </div>
+          <div class="math-formula-box">
+            $$\frac{dN}{dt} = r \cdot N\left(1 - \frac{N}{K}\right)$$
+          </div>
+          <div class="math-explanation">
+            <p>
+              La primera derivada $\frac{dN}{dt}$ define la velocidad instantánea de colonización bacteriana por unidad de tiempo. El factor $(1 - \frac{N}{K})$ representa el amortiguamiento logístico por agotamiento de nichos receptores en la mucosa neonatal.
+            </p>
+            <ul class="math-variable-list">
+              <li><code>N(t)</code> Densidad microbiana en el tiempo (CFU/mL)</li>
+              <li><code>r</code> Tasa malthusiana intrínseca de división ($h^{-1}$)</li>
+              <li><code>K</code> Capacidad de carga mucosal máxima ($\approx 10^6 \text{ CFU/mL}$)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 2: Análisis de Concavidad e Inflexión -->
+        <div class="math-card">
+          <div class="math-card-header">
+            <h3 class="math-card-title">Segunda Derivada y Punto de Máxima Velocidad</h3>
+            <span class="math-card-context">Criterio de concavidad e inflexión</span>
+          </div>
+          <div class="math-formula-box">
+            $$\frac{d^2N}{dt^2} = r^2 N \left(1 - \frac{N}{K}\right)\left(1 - \frac{2N}{K}\right)$$
+          </div>
+          <div class="math-explanation">
+            <p>
+              Al igualar la segunda derivada a cero ($\frac{d^2N}{dt^2} = 0$), se deduce matemáticamente que la máxima tasa de crecimiento ocurre con exactitud cuando la población alcanza la mitad de su capacidad de carga:
+            </p>
+            <p style="margin-top: 0.5rem; font-weight: 600; color: var(--teal-900); text-align: center;">
+              $$N^* = \frac{K}{2}, \quad t^* = \frac{1}{r}\ln\left(\frac{K - N_0}{N_0}\right)$$
+            </p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+              En el parto vaginal, $N_0$ es alto, por lo que $t^*$ se alcanza en pocas horas; en cesárea, el punto de máxima velocidad se posterga severamente.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: Cálculo Integral -->
+        <div class="math-card">
+          <div class="math-card-header">
+            <h3 class="math-card-title">Cálculo Integral: Inóculo Acumulado</h3>
+            <span class="math-card-context">Área bajo la curva (AUC) e integral definida</span>
+          </div>
+          <div class="math-formula-box">
+            $$M_{\text{total}}(T) = \int_{0}^{T} N(t)\, dt$$
+          </div>
+          <div class="math-explanation">
+            <p>
+              La integral definida representa la dosis biológica acumulada recibida por el sistema inmunitario en la ventana de tiempo neonatal crítica $[0, T]$.
+            </p>
+            <p style="margin-top: 0.5rem;">
+              Integrando analíticamente la curva logística $N(t) = \frac{K}{1 + A e^{-rt}}$ donde $A = \frac{K - N_0}{N_0}$:
+            </p>
+            <p style="margin-top: 0.5rem; font-family: var(--font-mono); font-size: 0.85rem; color: var(--teal-900);">
+              $$\int N(t)dt = K \left[ t + \frac{1}{r}\ln\left(\frac{1 + A e^{-rt}}{1 + A}\right) \right]$$
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SIMULADOR INTERACTIVO Y LABORATORIO -->
+    <section class="content-section" id="simulador">
+      <div class="section-heading-group">
+        <h2 class="section-heading">Laboratorio interactivo de dinámica poblacional microbiana</h2>
+        <p class="section-summary">
+          Manipula las variables diferenciales de la ecuación logística ($N_0$, $r$, $K$) y visualiza en tiempo real las diferencias cinéticas entre las vías de parto y la intervención biomédica.
+        </p>
+      </div>
+
+      <div class="simulator-panel">
+        <div class="simulator-toolbar">
+          <div class="simulator-title-group">
+            <h3>Simulador Cinético de Colonización Neonatal</h3>
+            <p>Solución analítica y cálculo numérico en tiempo real</p>
+          </div>
+          <div class="mode-toggle-group">
+            <button class="mode-btn active" data-mode="comparison">Superposición Comparativa</button>
+            <button class="mode-btn" data-mode="colonization">Curva N(t)</button>
+            <button class="mode-btn" data-mode="rate">Tasa Instantánea dN/dt</button>
+            <button class="mode-btn" data-mode="integral">Integral Acumulada ∫N dt</button>
+          </div>
+        </div>
+
+        <div class="simulator-body">
+          <!-- Control Panel -->
+          <div class="simulator-controls">
+            <div class="control-group">
+              <span class="control-label" style="margin-bottom: 0.25rem;">Escenarios Clínicos Predefinidos</span>
+              <div class="preset-presets-group">
+                <button class="preset-btn active" data-preset="vaginal">
+                  <span>Parto Vaginal Natural</span>
+                  <span style="color: var(--vaginal-color); font-weight: 700;">Alta Carga</span>
+                </button>
+                <button class="preset-btn" data-preset="cesarean">
+                  <span>Cesárea Convencional</span>
+                  <span style="color: var(--cesarean-color); font-weight: 700;">Inóculo Bajo</span>
+                </button>
+                <button class="preset-btn" data-preset="seeding">
+                  <span>Cesárea + Siembra Vaginal</span>
+                  <span style="color: var(--seeding-color); font-weight: 700;">Restaurado</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label-row">
+                <label for="sliderN0" class="control-label">Inóculo Inicial ($N_0$)</label>
+                <span class="control-value-badge" id="valN0">80,000 CFU</span>
+              </div>
+              <input type="range" id="sliderN0" min="500" max="150000" step="500" value="80000">
+              <span class="control-helper">Cantidad de bacterias transferidas en el momento $t = 0$.</span>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label-row">
+                <label for="sliderR" class="control-label">Tasa de Proliferación ($r$)</label>
+                <span class="control-value-badge" id="valR">0.38 h⁻¹</span>
+              </div>
+              <input type="range" id="sliderR" min="0.05" max="0.60" step="0.01" value="0.38">
+              <span class="control-helper">Velocidad intrínseca malthusiana de duplicación celular.</span>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label-row">
+                <label for="sliderK" class="control-label">Capacidad de Carga ($K$)</label>
+                <span class="control-value-badge" id="valK">1.0M CFU</span>
+              </div>
+              <input type="range" id="sliderK" min="300000" max="1500000" step="50000" value="1000000">
+              <span class="control-helper">Límite asintótico superior impuesto por la superficie mucosal.</span>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label-row">
+                <label for="sliderTime" class="control-label">Ventana Temporal ($T_{\max}$)</label>
+                <span class="control-value-badge" id="valTime">48 h</span>
+              </div>
+              <input type="range" id="sliderTime" min="12" max="72" step="6" value="48">
+              <span class="control-helper">Horas postnatales simuladas.</span>
+            </div>
+          </div>
+
+          <!-- Visualization Canvas -->
+          <div class="simulator-visualization">
+            <div class="canvas-container">
+              <canvas id="growthChart"></canvas>
+            </div>
+
+            <!-- Telemetry Indicator Bar -->
+            <div class="telemetry-bar">
+              <div class="telemetry-item">
+                <span class="telemetry-label">Biomasa Final N(T)</span>
+                <span class="telemetry-val" id="telemN">--</span>
+              </div>
+              <div class="telemetry-item">
+                <span class="telemetry-label">Tasa Derivada dN/dt</span>
+                <span class="telemetry-val" id="telemRate">--</span>
+              </div>
+              <div class="telemetry-item">
+                <span class="telemetry-label">Inóculo Acumulado ∫N dt</span>
+                <span class="telemetry-val" id="telemIntegral">--</span>
+              </div>
+              <div class="telemetry-item">
+                <span class="telemetry-label">Punto de Inflexión (t*)</span>
+                <span class="telemetry-val" id="telemInflection">--</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. APLICACIÓN EN INGENIERÍA BIOMÉDICA -->
+    <section class="content-section" id="biomedica">
+      <div class="section-heading-group">
+        <h2 class="section-heading">Aplicaciones y diseño en ingeniería biomédica</h2>
+        <p class="section-summary">
+          Cómo el ingeniero biomédico transforma un proceso biológico espontáneo en un procedimiento clínico estandarizado, reproducible y seguro mediante biomateriales y biosensores.
+        </p>
+      </div>
+
+      <div class="prose" style="margin-bottom: 2rem;">
+        <p class="lead-paragraph">
+          La técnica tradicional de <em>vaginal seeding</em> consiste en impregnar una gasa de algodón estéril en el canal vaginal materno antes de una cesárea programada, para luego aplicarla manualmente sobre la boca, cara y cuerpo del neonato.
+        </p>
+        <p>
+          No obstante, este método empírico adolece de dos retos críticos abordables desde la ingeniería biomédica:
+        </p>
+        <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;">
+          <li><strong>Riesgo de transferencia de patógenos:</strong> Si la madre porta asintomáticamente <em>Streptococcus agalactiae</em> (EGB), herpes simple (VHS), Chlamydia o vaginosis bacteriana, el hisopado tradicional no cribado puede provocar sepsis neonatal fulminante o neumonía.</li>
+          <li><strong>Variabilidad incontrolada en la masa transferida:</strong> Las gasas de algodón estándar sufren desecación rápida, provocando lisis masiva de bacterias anaerobias y una tasa de absorción errática en la epidermis neonatal.</li>
+        </ol>
+      </div>
+
+      <!-- Biomedical Figures Pair -->
+      <div class="layout-equal" style="margin-bottom: 2.5rem;">
+        <figure class="scientific-figure">
+          <div class="figure-media-wrap" style="height: 250px;">
+            <img src="IMAGENES/images.jpeg" alt="Canal vaginal y anatomía reproductiva en simulación clínica" style="height: 100%; object-fit: cover;">
+          </div>
+          <figcaption class="figure-caption">
+            <strong>Figura 5.</strong> Topografía del canal del parto y mucosa cervical: interfase biomecánica donde ocurre la impregnación fisiológica durante el tránsito eutócico.
+          </figcaption>
+        </figure>
+
+        <figure class="scientific-figure">
+          <div class="figure-media-wrap" style="height: 250px; background: #ffffff;">
+            <img src="IMAGENES/aa4b33a2f0b9c221d20088efa5ccbbbf61c7a1dd.png" alt="Ingeniería biotecnológica y transformación de bacterias benéficas" style="height: 100%; object-fit: contain;">
+          </div>
+          <figcaption class="figure-caption">
+            <strong>Figura 6.</strong> Ingeniería de cepas microbianas y bioprocesos: selección en cultivo y formulación de consorcios probióticos sintéticos o <em>Live Biotherapeutic Products</em> (LBPs).
+          </figcaption>
+        </figure>
+      </div>
+
+      <!-- Biomedical Solutions Grid -->
+      <div class="bioeng-grid">
+        <div class="bioeng-card">
+          <span class="bioeng-tag">Biomateriales Inteligentes</span>
+          <h3 class="bioeng-title">Hidrogeles de liberación y transporte controlado</h3>
+          <p class="bioeng-desc">
+            Diseño de apósitos poliméricos biocompatibles basados en matrices de alginato-quitosano o hidrogeles de colágeno hidratado. Permiten mantener la viabilidad de cepas de <em>Lactobacillus</em> en condiciones anaeróbicas controladas y dosificar la tasa de transferencia tegumentaria siguiendo la Ley de Difusión de Fick.
+          </p>
+        </div>
+
+        <div class="bioeng-card">
+          <span class="bioeng-tag">Sistemas Microfluídicos</span>
+          <h3 class="bioeng-title">Biosensores Point-of-Care (PoC) para screening rápido</h3>
+          <p class="bioeng-desc">
+            Desarrollo de dispositivos microfluídicos lab-on-a-chip con amplificación isotérmica (LAMP) o detección electroquímica para tamizar en menos de 20 minutos la presencia de <em>Streptococcus agalactiae</em> y virus patógenos en el fluido materno antes de autorizar la transferencia.
+          </p>
+        </div>
+
+        <div class="bioeng-card">
+          <span class="bioeng-tag">Biotecnología Farmacéutica</span>
+          <h3 class="bioeng-title">Consorcios bacterianos definidos (LBPs)</h3>
+          <p class="bioeng-desc">
+            En lugar de usar secreciones vaginales crudas sin estandarizar, la ingeniería biológica avanza hacia la formulación de consorcios definidos liofilizados con proporciones estequiométricas calculadas de <em>L. crispatus</em> y <em>B. infantis</em> purificados bajo normas de Buenas Prácticas de Fabricación (GMP).
+          </p>
+        </div>
+      </div>
+
+      <!-- Mini Interactive Simulation: Fickian Swab Transfer Model -->
+      <div class="simulator-panel" style="margin-top: 2rem;">
+        <div class="simulator-toolbar">
+          <div class="simulator-title-group">
+            <h3>Simulación de Transferencia por Contacto en Apósito Biomédico</h3>
+            <p>Cinética de transferencia de masa y decaimiento exponencial: $J(t) = J_0 e^{-k_d t}$</p>
+          </div>
+        </div>
+        <div style="padding: 1.75rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+          <div>
+            <p style="font-size: 0.95rem; color: var(--ink-secondary); margin-bottom: 1.25rem;">
+              Al frotar suavemente el apósito impregnado sobre la epidermis neonatal durante un intervalo $[0, t]$, el flujo bacteriano transferido $J(t)$ decrece con el tiempo por agotamiento de la interfase:
+            </p>
+            <div style="font-family: var(--font-mono); background: var(--bg-subtle); padding: 0.75rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-medium); font-size: 0.95rem; margin-bottom: 1.25rem; color: var(--teal-900);">
+              $$M(t) = \int_0^t J_0 e^{-k_d \tau} d\tau = \frac{J_0}{k_d}\left(1 - e^{-k_d t}\right)$$
+            </div>
+            
+            <div class="control-group" style="margin-bottom: 1rem;">
+              <div class="control-label-row">
+                <label for="sliderDiffTime" class="control-label">Tiempo de contacto con el apósito</label>
+                <span class="control-value-badge" id="valDiffTime">5 min</span>
+              </div>
+              <input type="range" id="sliderDiffTime" min="1" max="15" step="1" value="5">
+            </div>
+
+            <div class="control-group">
+              <div class="control-label-row">
+                <label for="sliderDiffJ0" class="control-label">Flujo de inoculación inicial ($J_0$)</label>
+                <span class="control-value-badge" id="valDiffJ0">12,000 CFU/min</span>
+              </div>
+              <input type="range" id="sliderDiffJ0" min="4000" max="25000" step="1000" value="12000">
+            </div>
+          </div>
+
+          <div style="background: #fafbfa; border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.5rem;">
+            <div style="margin-bottom: 1rem;">
+              <span style="font-size: 0.75rem; text-transform: uppercase; color: var(--ink-muted); font-weight: 600;">Saturación de Dosis Transferida al Neonato</span>
+              <div style="width: 100%; height: 12px; background: #e2e8e5; border-radius: 6px; overflow: hidden; margin-top: 0.5rem;">
+                <div id="diffProgressBar" style="width: 66%; height: 100%; background: var(--teal-600); transition: width 0.2s ease;"></div>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
+              <div class="telemetry-item">
+                <span class="telemetry-label">Masa Total Inoculada</span>
+                <span class="telemetry-val" id="telemDiffTransferred" style="color: var(--teal-800);">--</span>
+              </div>
+              <div class="telemetry-item">
+                <span class="telemetry-label">Flujo Instantáneo Residual</span>
+                <span class="telemetry-val" id="telemDiffRate" style="color: var(--uat-orange);">--</span>
+              </div>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--ink-muted); margin-top: 1.25rem; line-height: 1.4;">
+              *Nota para diseño biomédico: Un contacto de 4 a 6 minutos logra transferir más del 70% de la carga bacteriana viable sin comprometer la temperatura del neonato.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. EVIDENCIA CIENTÍFICA Y FUENTES -->
+    <section class="content-section" id="evidencia">
+      <div class="section-heading-group">
+        <h2 class="section-heading">Evidencia científica y artículos de referencia</h2>
+        <p class="section-summary">
+          Resumen analítico de los estudios internacionales pioneros utilizados para estructurar esta investigación biomédica.
+        </p>
+      </div>
+
+      <div class="papers-container">
+        <!-- Paper 1: eLife -->
+        <article class="paper-card">
+          <div>
+            <div class="paper-meta">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>eLife Sciences &bull; 2021 &bull; DOI: 10.7554/eLife.57051</span>
+            </div>
+            <h3 class="paper-title">Modeling transfer of vaginal microbiota from mother to infant in early life</h3>
+            <p class="paper-takeaway">
+              Investigación en 665 binomios madre-hijo de la cohorte prospectiva COPSAC2010. Los autores formularon modelos computacionales basados en Ratios Ponderadas de Transferencia (<em>Weighted Transfer Ratios - WTR</em>) comparando muestras vaginales en el 3er trimestre con la microbiota fecal y respiratoria neonatal a la semana 1, mes 1 y año 1. Demostraron empíricamente cómo el modo de parto altera las trayectorias de persistencia bacteriana.
+            </p>
+          </div>
+          <a href="https://elifesciences.org/articles/57051" target="_blank" rel="noopener noreferrer" class="paper-link-btn">
+            Consultar artículo original en eLife
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </article>
+
+        <!-- Paper 2: MDPI Microorganisms -->
+        <article class="paper-card">
+          <div>
+            <div class="paper-meta">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>MDPI Microorganisms &bull; 2023 &bull; Vol. 11, Núm. 6</span>
+            </div>
+            <h3 class="paper-title">Possible Therapeutic Mechanisms and Future Perspectives of Vaginal Microbiota Transplantation</h3>
+            <p class="paper-takeaway">
+              Revisión exhaustiva sobre el trasplante de microbiota vaginal (VMT) y la siembra en cesáreas. Aborda los mecanismos de protección celular por bacteriocinas, restitución de eubiosis, entrenamiento del eje inmunometabólico, y detalla los requerimientos indispensables de bioseguridad y cribado patogénico requeridos para la práctica clínica estandarizada.
+            </p>
+          </div>
+          <a href="https://www.mdpi.com/2076-2607/11/6/1427" target="_blank" rel="noopener noreferrer" class="paper-link-btn">
+            Consultar artículo original en MDPI
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          </a>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       ACADEMIC FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Universidad Autónoma de Tamaulipas</h4>
+          <p>
+            Facultad de Medicina de Tampico "Dr. Alberto Romo Caballero"<br>
+            Licenciatura en Ingeniería Biomédica<br>
+            Campus Sur &bull; Tampico, Tamaulipas, México.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ficha Técnica del Proyecto</h4>
+          <table class="student-card-table">
+            <tr>
+              <td>Integrantes</td>
+              <td>
+                Rodrigo Lara<br>
+                Mariana Salas Villanueva<br>
+                Stefany Alessandra Castro Balboa
+              </td>
+            </tr>
+            <tr>
+              <td>Semestre/Grupo</td>
+              <td>1 A</td>
+            </tr>
+            <tr>
+              <td>Cátedra</td>
+              <td>Cálculo Integral y Diferencial I</td>
+            </tr>
+            <tr>
+              <td>Catedrático</td>
+              <td>Fuentes Castro Juan Ángel</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="footer-col">
+          <h4>Propósito Formativo</h4>
+          <p>
+            Investigación académica y desarrollo de interfaz interactiva para la vinculación entre el cálculo infinitesimal, los fenómenos biológicos del microbioma y el desarrollo de tecnologías biomédicas.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-strip">
+        <span>&copy; 2026 Rodrigo Lara, Mariana Salas Villanueva, Stefany Alessandra Castro Balboa &bull; Ingeniería Biomédica UAT.</span>
+        <span>Desarrollo con criterios de diseño editorial biomédico</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
