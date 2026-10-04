@@ -41,8 +41,19 @@
     </div>
 
     <div class="nav-container">
-      <a href="#inicio" class="site-title-compact">Transferencia Microbiana Vaginal</a>
-      <nav>
+      <div class="nav-brand-row">
+        <a href="#inicio" class="site-title-compact">Transferencia Microbiana Vaginal</a>
+        <button type="button" class="header-action-btn mobile-print-btn" id="printBtnMobile">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span class="btn-text">PDF</span>
+        </button>
+      </div>
+
+      <nav class="nav-links-track">
         <ul class="site-nav-links">
           <li><a href="#fundamento">Fundamento Biológico</a></li>
           <li><a href="#calculo">Modelado Matemático</a></li>
@@ -51,13 +62,14 @@
           <li><a href="#evidencia">Fuentes Científicas</a></li>
         </ul>
       </nav>
-      <button type="button" class="header-action-btn" id="printBtn">
+
+      <button type="button" class="header-action-btn desktop-print-btn" id="printBtn">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="6 9 6 2 18 2 18 9"></polyline>
           <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
           <rect x="6" y="14" width="12" height="8"></rect>
         </svg>
-        Imprimir / PDF
+        <span>Imprimir / PDF</span>
       </button>
     </div>
   </header>
@@ -490,7 +502,7 @@
             <p>Cinética de transferencia de masa y decaimiento exponencial: $J(t) = J_0 e^{-k_d t}$</p>
           </div>
         </div>
-        <div style="padding: 1.75rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+        <div class="diff-sim-grid">
           <div>
             <p style="font-size: 0.95rem; color: var(--ink-secondary); margin-bottom: 1.25rem;">
               Al frotar suavemente el apósito impregnado sobre la epidermis neonatal durante un intervalo $[0, t]$, el flujo bacteriano transferido $J(t)$ decrece con el tiempo por agotamiento de la interfase:

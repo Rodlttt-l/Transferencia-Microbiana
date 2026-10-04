@@ -481,14 +481,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Hover Crosshair on Canvas
-  canvas.addEventListener("mousemove", (e) => {
+  // Hover / Touch Crosshair on Canvas
+  function updateCrosshairFromCoords(clientX, clientY) {
     const rect = canvas.getBoundingClientRect();
     state.hoverPoint = {
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
+      x: clientX - rect.left,
+      y: clientY - rect.top
     };
     draw();
+  }
+
+  canvas.addEventListener("mousemove", (e) => {
+    updateCrosshairFromCoords(e.clientX, e.clientY);
   });
 
   canvas.addEventListener("mouseleave", () => {
@@ -496,12 +500,32 @@ document.addEventListener("DOMContentLoaded", () => {
     draw();
   });
 
-  // Print button
+  // Touch Support for Phones and Tablets
+  canvas.addEventListener("touchstart", (e) => {
+    if (e.touches && e.touches.length > 0) {
+      updateCrosshairFromCoords(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+
+  canvas.addEventListener("touchmove", (e) => {
+    if (e.touches && e.touches.length > 0) {
+      updateCrosshairFromCoords(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+
+  canvas.addEventListener("touchend", () => {
+    state.hoverPoint = null;
+    draw();
+  });
+
+  // Print buttons (Desktop & Mobile)
   const printBtn = document.getElementById("printBtn");
+  const printBtnMobile = document.getElementById("printBtnMobile");
   if (printBtn) {
-    printBtn.addEventListener("click", () => {
-      window.print();
-    });
+    printBtn.addEventListener("click", () => window.print());
+  }
+  if (printBtnMobile) {
+    printBtnMobile.addEventListener("click", () => window.print());
   }
 
   // Window Resize
